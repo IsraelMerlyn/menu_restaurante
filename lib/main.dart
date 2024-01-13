@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:menu_restaurante/presentation/Screen/IntroPages.dart';
 import 'package:menu_restaurante/presentation/Screen/cart_pages.dart';
-import 'package:menu_restaurante/presentation/Screen/menuPages.dart';
+import 'package:menu_restaurante/presentation/Screen/homePages.dart';
+import 'package:menu_restaurante/presentation/Screen/settingPages.dart';
+// import 'package:menu_restaurante/presentation/Screen/menuPages.dart';
 import 'package:menu_restaurante/presentation/models/shop_model.dart';
 import 'package:provider/provider.dart';
 
@@ -26,8 +28,10 @@ class MyApp extends StatelessWidget {
       home: const IntroPages(),
       routes: {
         '/intropage': (context) => const IntroPages(),
-        '/menupages': (context) => const MenuPages(),
+        // '/menupages': (context) => const MenuPages(),
+        '/homemenupages': (context) => const HomePagesMenu(),
         '/cartpages': (context) => const CartPages(),
+        '/settingpages': (context) => const SettingPages(),
       },
     );
   }

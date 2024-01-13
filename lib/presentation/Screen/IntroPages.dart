@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:menu_restaurante/components/button.dart';
@@ -9,7 +8,7 @@ class IntroPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 138, 60, 55),
+      backgroundColor: const Color.fromARGB(255, 138, 60, 55),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -58,10 +57,9 @@ class IntroPages extends StatelessWidget {
 
               MyButton(
                 text: 'Inicio',
-                onTap: () {
-                  //get to menu
-                  Navigator.pushNamed(context, '/menupages');
-                },
+                onTap: () =>
+                    //get to menu
+                    Navigator.pushNamed(context, '/homemenupages'),
               )
               // get start button
             ]),
