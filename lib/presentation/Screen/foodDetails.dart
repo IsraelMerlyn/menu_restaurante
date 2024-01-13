@@ -1,4 +1,5 @@
-// ignore: file_names
+// ignore_for_file: file_names
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,14 +24,15 @@ class _FoodDetailsPagesState extends State<FoodDetailsPages> {
   void showAlertDialogOnOkCallback(String title, String msg,
       DialogType dialogType, BuildContext context, VoidCallback onOkPres) {
     AwesomeDialog(
-      context: context,
-      animType: AnimType.topSlide,
-      dialogType: dialogType,
-      title: title,
-      desc: msg,
-      btnOkIcon: Icons.check_circle,
-      btnOkColor: Colors.green.shade900,btnOkOnPress: onOkPres
-    ).show();
+            context: context,
+            animType: AnimType.topSlide,
+            dialogType: dialogType,
+            title: title,
+            desc: msg,
+            btnOkIcon: Icons.check_circle,
+            btnOkColor: Colors.green.shade900,
+            btnOkOnPress: onOkPres)
+        .show();
   }
 
   void decrementQuantity() {
@@ -58,29 +60,28 @@ class _FoodDetailsPagesState extends State<FoodDetailsPages> {
       shop.addToCart(widget.food, quantityCount);
       //let
       showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) => AlertDialog(
-                backgroundColor: primaryColor,
-                content: const Text(
-                  'agregado con exito',
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-                actions: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.done,
-                        color: Colors.white,
-                      ))
-                ],
-              ),
-              );
-    
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+          backgroundColor: primaryColor,
+          content: const Text(
+            'agregado con exito',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.done,
+                  color: Colors.white,
+                ))
+          ],
+        ),
+      );
     }
   }
 
