@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class SettingPages extends StatelessWidget {
@@ -7,7 +9,7 @@ class SettingPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Configuracion'),
+        title: const Text('Configuracion'),
       ),
       body: Container(
         padding: const EdgeInsets.only(left: 16, top: 25, right: 16),

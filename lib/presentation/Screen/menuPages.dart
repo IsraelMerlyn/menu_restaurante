@@ -1,4 +1,6 @@
 // ignore: file_names
+// ignore_for_file: unused_import, unused_local_variable, file_names, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:menu_restaurante/components/button.dart';
@@ -61,7 +63,7 @@ class _MenuPagesState extends State<MenuPages> {
               icon: const Icon(Icons.shopping_bag))
         ],
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       // body: Column(
       //   crossAxisAlignment: CrossAxisAlignment.start,
       //   children: [
