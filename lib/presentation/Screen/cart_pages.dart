@@ -1,7 +1,11 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:flutter/material.dart';
 import 'package:menu_restaurante/components/button.dart';
 import 'package:menu_restaurante/themes/colors.dart';
 import 'package:provider/provider.dart';
+import 'package:quickalert/quickalert.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 import '../models/food_model.dart';
 import '../models/shop_model.dart';
@@ -11,11 +15,35 @@ class CartPages extends StatelessWidget {
 
   void removeFromCart(Food food, BuildContext context) {
     //
-    final shop = context.read<Shop>();
+    QuickAlert.show(
+        context: context,
+        type: QuickAlertType.confirm,
+        title: 'Deseas eliminar el producto ?',
+        confirmBtnText: 'Si',
+        cancelBtnText: 'No',
+        onConfirmBtnTap: () {
+          Navigator.pop(context);
+          final shop = context.read<Shop>();
 
-    //method
+          //method
 
-    shop.removeFromCart(food);
+          shop.removeFromCart(food);
+        });
+    // final shop = context.read<Shop>();
+
+    // //method
+
+    // shop.removeFromCart(food);
+  }
+
+  void payButtonAlert(BuildContext context) {
+    QuickAlert.show(
+        context: context,
+        type: QuickAlertType.error,
+        title: 'Error al momento de pagar',
+        text: 'Error de conexion con el backend',
+        confirmBtnText: 'Ok',
+        confirmBtnColor: Colors.red);
   }
 
   @override
@@ -81,7 +109,7 @@ class CartPages extends StatelessWidget {
               padding: const EdgeInsets.all(25.0),
               child: MyButton(
                 text: 'Pagar Ahora',
-                onTap: () {},
+                onTap: () => payButtonAlert(context),
               ),
             )
           ],
