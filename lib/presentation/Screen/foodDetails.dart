@@ -7,6 +7,8 @@ import 'package:menu_restaurante/components/button.dart';
 import 'package:menu_restaurante/presentation/models/food_model.dart';
 import 'package:menu_restaurante/themes/colors.dart';
 import 'package:provider/provider.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 import '../models/shop_model.dart';
 
@@ -82,6 +84,29 @@ class _FoodDetailsPagesState extends State<FoodDetailsPages> {
           ],
         ),
       );
+    }
+  }
+
+  // add to card modal
+
+  void addToCartAlert() {
+    if (quantityCount > 0) {
+      //accion
+
+      //let
+      QuickAlert.show(
+          context: context,
+          type: QuickAlertType.confirm,
+          title: 'Deseas agregar este producto ?',
+          text: '',
+          confirmBtnText: 'si',
+          cancelBtnText: 'no',
+          onConfirmBtnTap: () {
+            final shop = context.read<Shop>();
+            //agregar
+            Navigator.pop(context);
+            shop.addToCart(widget.food, quantityCount);
+          });
     }
   }
 
@@ -231,7 +256,7 @@ class _FoodDetailsPagesState extends State<FoodDetailsPages> {
 
                 MyButton(
                   text: "Agregar",
-                  onTap: addToCart,
+                  onTap: addToCartAlert,
                 )
               ],
             ),
